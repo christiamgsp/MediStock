@@ -1,7 +1,25 @@
 <app-navbar></app-navbar>
 <main>
   <h2>Panel de Inventario</h2>
-  <ul>
-    <li *ngFor="let m of stock.listaMedicamentos">{{ m.nombre }} - Precio: {{ m.precio }}€</li>
-  </ul>
+  <table>
+    <thead>
+      <tr>
+        <th>Nombre</th>
+        <th>Precio</th>
+        <th>Stock</th>
+        <th>Estado</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let m of stock.listaMedicamentos">
+        <td>{{ m.nombre }}</td>
+        <td>{{ m.precio }}€</td>
+        <td>{{ m.stock }}</td>
+        <td>
+          <span *ngIf="m.stock > 20">✅ Disponible</span>
+          <span *ngIf="m.stock <= 20">⚠️ Reponer pronto</span>
+        </td>
+      </tr>
+    </tbody>
+  </table>
 </main>
