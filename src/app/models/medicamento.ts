@@ -3,4 +3,5 @@ export interface Medicamento {
   nombre: string;
   precio: number;
   stock: number;
+  descripcion?: string;
 }
