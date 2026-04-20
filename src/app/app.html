@@ -19,6 +19,9 @@
           <span *ngIf="m.stock > 20">✅ Disponible</span>
           <span *ngIf="m.stock <= 20">⚠️ Reponer pronto</span>
         </td>
+        <td>
+          <button (click)="stock.realizarVenta(m.id)">Vender</button>
+        </td>
       </tr>
     </tbody>
   </table>

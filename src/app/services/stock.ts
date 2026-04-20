@@ -15,4 +15,11 @@ export class Stock {
   buscarPorId = (idBuscado: number) => this.listaMedicamentos.find((m) => m.id === idBuscado);
 
   obtenerTotalProductos = () => this.listaMedicamentos.length;
+
+  realizarVenta = (id: number) => {
+    const med = this.buscarPorId(id);
+    if (med && med.stock > 0) {
+      med.stock--;
+    }
+  };
 }
