@@ -14,7 +14,15 @@
       <tr *ngFor="let m of stock.listaMedicamentos">
         <td>{{ m.nombre }}</td>
         <td>{{ m.precio }}€</td>
-        <td>{{ m.stock }}</td>
+        <td
+          [style.color]="m.stock < 10 ? 'red' : 'black'"
+          [style.font-weight]="m.stock < 10 ? 'bold' : 'normal'"
+        >
+          {{ m.stock }}
+        </td>
+        <td [style.color]="m.stock < 10 ? 'red' : 'green'">
+          {{ m.stock }}
+        </td>
         <td>
           <span *ngIf="m.stock > 20">✅ Disponible</span>
           <span *ngIf="m.stock <= 20">⚠️ Reponer pronto</span>
