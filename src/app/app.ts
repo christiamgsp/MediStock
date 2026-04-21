@@ -14,4 +14,7 @@ import { FormsModule } from '@angular/forms';
 export class App {
   textoBusqueda: string = '';
   constructor(public stock: Stock) {}
+  nuevoNombre: string = '';
+  nuevoPrecio: number = 0;
+  nuevoStock: number = 0;
 }
