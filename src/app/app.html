@@ -6,6 +6,14 @@
     <input type="text" [(ngModel)]="textoBusqueda" />
     <p>Estás buscando: {{ textoBusqueda }}</p>
   </div>
+  <section class="formulario">
+    <h3>Añadir Medicamento</h3>
+    <input type="text" [(ngModel)]="nuevoNombre" placeholder="Nombre" />
+    <input type="number" [(ngModel)]="nuevoPrecio" placeholder="Precio" />
+    <input type="number" [(ngModel)]="nuevoStock" placeholder="Stock" />
+
+    <button (click)="agregarMedicamento()">Guardar en Inventario</button>
+  </section>
   <table>
     <thead>
       <tr>
