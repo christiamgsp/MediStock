@@ -19,7 +19,7 @@ export class App {
   constructor(public stock: Stock) {}
 
   agregarMedicamento = () => {
-    // 1. COMPROBAMOS: ¿El nombre tiene algo escrito?
+ 
     if (this.nuevoNombre !== '') { 
       
     
