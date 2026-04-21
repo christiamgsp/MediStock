@@ -1,6 +1,11 @@
 <app-navbar></app-navbar>
 <main>
   <h2>Panel de Inventario</h2>
+  <div>
+    <label>Buscar medicamento:</label>
+    <input type="text" [(ngModel)]="textoBusqueda" />
+    <p>Estás buscando: {{ textoBusqueda }}</p>
+  </div>
   <table>
     <thead>
       <tr>
