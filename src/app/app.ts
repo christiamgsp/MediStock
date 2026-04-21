@@ -12,9 +12,24 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './app.css',
 })
 export class App {
-  textoBusqueda: string = '';
-  constructor(public stock: Stock) {}
   nuevoNombre: string = '';
   nuevoPrecio: number = 0;
   nuevoStock: number = 0;
+
+  constructor(public stock: Stock) {}
+
+  agregarMedicamento = () => {
+    const nuevoMed = {
+      id: Date.now(),
+      nombre: this.nuevoNombre,
+      precio: this.nuevoPrecio,
+      stock: this.nuevoStock,
+    };
+
+    this.stock.listaMedicamentos.push(nuevoMed);
+
+    this.nuevoNombre = '';
+    this.nuevoPrecio = 0;
+    this.nuevoStock = 0;
+  };
 }
