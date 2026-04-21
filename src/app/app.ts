@@ -19,12 +19,29 @@ export class App {
   constructor(public stock: Stock) {}
 
   agregarMedicamento = () => {
-    const nuevoMed = {
-      id: Date.now(),
-      nombre: this.nuevoNombre,
-      precio: this.nuevoPrecio,
-      stock: this.nuevoStock,
-    };
+    // 1. COMPROBAMOS: ¿El nombre tiene algo escrito?
+    if (this.nuevoNombre !== '') { 
+      
+    
+      const nuevoMed = {
+        id: Date.now(),
+        nombre: this.nuevoNombre,
+        precio: this.nuevoPrecio,
+        stock: this.nuevoStock
+      };
+  
+      this.stock.listaMedicamentos.push(nuevoMed);
+  
+ 
+      this.nuevoNombre = '';
+      this.nuevoPrecio = 0;
+      this.nuevoStock = 0;
+  
+    } else {
+      
+      console.log("No puedes añadir un medicamento sin nombre");
+    }
+  }
 
     this.stock.listaMedicamentos.push(nuevoMed);
 
