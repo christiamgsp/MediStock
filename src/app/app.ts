@@ -42,8 +42,8 @@ export class App {
   };
 
   get medicamentosFiltrados() {
-    return this.stock.listaMedicamentos.filter((m) =>
-      m.nombre.toLowerCase().includes(this.textoBusqueda.toLowerCase()),
+    return this.stock.listaMedicamentos.filter(
+      (m) => m.nombre.toLowerCase().includes(this.textoBusqueda.toLowerCase()) && m.precio < 50,
     );
   }
 }

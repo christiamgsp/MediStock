@@ -25,22 +25,23 @@
     </thead>
     <tbody>
       <tr *ngFor="let m of medicamentosFiltrados">
-        <td>{{ m.id | date: 'HH:mm:ss' }}</td>
+        <td>{{ m.nombre }}</td>
 
         <td>{{ m.precio | currency: 'EUR' }}</td>
+
         <td
           [style.color]="m.stock < 10 ? 'red' : 'black'"
           [style.font-weight]="m.stock < 10 ? 'bold' : 'normal'"
         >
           {{ m.stock }}
         </td>
-        <td [style.color]="m.stock < 10 ? 'red' : 'green'">
-          {{ m.stock }}
-        </td>
+
         <td>
           <span *ngIf="m.stock > 20">✅ Disponible</span>
           <span *ngIf="m.stock <= 20">⚠️ Reponer pronto</span>
+          <br /><small style="color: #ccc">ID: {{ m.id | date: 'HH:mm:ss' }}</small>
         </td>
+
         <td>
           <button (click)="stock.realizarVenta(m.id)">Vender</button>
         </td>
