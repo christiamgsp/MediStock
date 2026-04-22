@@ -10,16 +10,20 @@ export class Stock {
     { id: 2, nombre: 'Ibuprofeno', precio: 8, stock: 15 },
     { id: 3, nombre: 'Amoxicilina', precio: 12, stock: 10 },
   ];
+
   constructor() {}
 
-  buscarPorId = (idBuscado: number) => this.listaMedicamentos.find((m) => m.id === idBuscado);
+  buscarPorId = (idBuscado: number | string) =>
+    this.listaMedicamentos.find((m) => m.id === idBuscado);
 
   obtenerTotalProductos = () => this.listaMedicamentos.length;
 
-  realizarVenta = (id: number) => {
+  realizarVenta = (id: number | string) => {
     const med = this.buscarPorId(id);
     if (med && med.stock > 0) {
       med.stock--;
+    } else {
+      alert('¡No hay existencias para vender!');
     }
   };
 }

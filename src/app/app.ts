@@ -16,6 +16,7 @@ export class App {
   nuevoNombre: string = '';
   nuevoPrecio: number = 0;
   nuevoStock: number = 0;
+
   textoBusqueda: string = '';
   precioMaximo: number = 100;
 
@@ -24,7 +25,7 @@ export class App {
   agregarMedicamento = () => {
     if (this.nuevoNombre !== '' && this.nuevoPrecio > 0) {
       const nuevoMed = {
-        id: Date.now(),
+        id: this.nuevoNombre + Date.now(),
         nombre: this.nuevoNombre,
         precio: this.nuevoPrecio,
         stock: this.nuevoStock,
@@ -33,11 +34,8 @@ export class App {
       this.stock.listaMedicamentos.push(nuevoMed);
 
       this.nuevoNombre = '';
+      this.nuevoPrecio = 0;
       this.nuevoStock = 0;
-
-      if (this.nuevoPrecio <= 100) {
-        this.nuevoPrecio = 0;
-      }
     } else {
       console.log('Datos inválidos');
     }
