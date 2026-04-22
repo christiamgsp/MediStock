@@ -1,4 +1,4 @@
-import { Component, signal } from '@angular/core';
+import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { Navbar } from './shared/components/navbar/navbar';
 import { Stock } from './services/stock';
@@ -7,6 +7,7 @@ import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
+  standalone: true,
   imports: [RouterOutlet, Navbar, CommonModule, FormsModule],
   templateUrl: './app.html',
   styleUrl: './app.css',
@@ -19,34 +20,21 @@ export class App {
   constructor(public stock: Stock) {}
 
   agregarMedicamento = () => {
- 
-    if (this.nuevoNombre !== '') { 
-      
-    
+    if (this.nuevoNombre !== '' && this.nuevoPrecio !== 0) {
       const nuevoMed = {
         id: Date.now(),
         nombre: this.nuevoNombre,
         precio: this.nuevoPrecio,
-        stock: this.nuevoStock
+        stock: this.nuevoStock,
       };
-  
+
       this.stock.listaMedicamentos.push(nuevoMed);
-  
- 
+
       this.nuevoNombre = '';
       this.nuevoPrecio = 0;
       this.nuevoStock = 0;
-  
     } else {
-      
-      console.log("No puedes añadir un medicamento sin nombre");
+      console.log('No puedes añadir un medicamento sin nombre');
     }
-  }
-
-    this.stock.listaMedicamentos.push(nuevoMed);
-
-    this.nuevoNombre = '';
-    this.nuevoPrecio = 0;
-    this.nuevoStock = 0;
   };
 }
