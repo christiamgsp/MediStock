@@ -17,8 +17,10 @@ export class App {
   nuevoPrecio: number = 0;
   nuevoStock: number = 0;
   textoBusqueda: string = '';
+  precioMaximo: number = 100;
 
   constructor(public stock: Stock) {}
+
   agregarMedicamento = () => {
     if (this.nuevoNombre !== '' && this.nuevoPrecio > 0) {
       const nuevoMed = {
@@ -41,9 +43,16 @@ export class App {
     }
   };
 
+  limpiarFiltros = () => {
+    this.textoBusqueda = '';
+    this.precioMaximo = 100;
+  };
+
   get medicamentosFiltrados() {
     return this.stock.listaMedicamentos.filter(
-      (m) => m.nombre.toLowerCase().includes(this.textoBusqueda.toLowerCase()) && m.precio < 50,
+      (m) =>
+        m.nombre.toLowerCase().includes(this.textoBusqueda.toLowerCase()) &&
+        m.precio <= this.precioMaximo,
     );
   }
 }
