@@ -40,4 +40,10 @@ export class App {
       console.log('Datos inválidos');
     }
   };
+
+  get medicamentosFiltrados() {
+    return this.stock.listaMedicamentos.filter((m) =>
+      m.nombre.toLowerCase().includes(this.textoBusqueda.toLowerCase()),
+    );
+  }
 }
