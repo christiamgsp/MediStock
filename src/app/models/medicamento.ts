@@ -1,5 +1,5 @@
 export interface Medicamento {
-  id: number;
+  id: number | string;
   nombre: string;
   precio: number;
   stock: number;

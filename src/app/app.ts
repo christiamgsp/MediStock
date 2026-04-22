@@ -34,7 +34,6 @@ export class App {
       this.stock.listaMedicamentos.push(nuevoMed);
 
       this.nuevoNombre = '';
-      this.nuevoPrecio = 0;
       this.nuevoStock = 0;
     } else {
       console.log('Datos inválidos');
