@@ -18,7 +18,6 @@ export class App {
   nuevoStock: number = 0;
 
   constructor(public stock: Stock) {}
-
   agregarMedicamento = () => {
     if (this.nuevoNombre !== '' && this.nuevoPrecio > 0) {
       const nuevoMed = {
@@ -31,10 +30,13 @@ export class App {
       this.stock.listaMedicamentos.push(nuevoMed);
 
       this.nuevoNombre = '';
-      this.nuevoPrecio = 0;
       this.nuevoStock = 0;
+
+      if (this.nuevoPrecio <= 100) {
+        this.nuevoPrecio = 0;
+      }
     } else {
-      console.log('No puedes añadir un medicamento sin nombre');
+      console.log('Datos inválidos');
     }
   };
 }

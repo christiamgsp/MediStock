@@ -25,8 +25,9 @@
     </thead>
     <tbody>
       <tr *ngFor="let m of stock.listaMedicamentos">
-        <td>{{ m.nombre }}</td>
-        <td>{{ m.precio }}€</td>
+        <td>{{ m.id | date: 'HH:mm:ss' }}</td>
+
+        <td>{{ m.precio | currency: 'EUR' }}</td>
         <td
           [style.color]="m.stock < 10 ? 'red' : 'black'"
           [style.font-weight]="m.stock < 10 ? 'bold' : 'normal'"
