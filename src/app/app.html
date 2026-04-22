@@ -1,11 +1,20 @@
 <app-navbar></app-navbar>
 <main>
   <h2>Panel de Inventario</h2>
+
+  <div class="buscador-container">
+    <label>Buscar por nombre:</label>
+    <input type="text" [(ngModel)]="textoBusqueda" />
+
+    <label>Precio máximo (€):</label>
+    <input type="number" [(ngModel)]="precioMaximo" />
+  </div>
   <div>
     <label>Buscar medicamento:</label>
     <input type="text" [(ngModel)]="textoBusqueda" />
     <p>Estás buscando: {{ textoBusqueda }}</p>
   </div>
+
   <section class="formulario">
     <h3>Añadir Medicamento</h3>
     <input type="text" [(ngModel)]="nuevoNombre" placeholder="Nombre" />
