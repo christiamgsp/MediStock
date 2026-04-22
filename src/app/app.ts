@@ -20,7 +20,7 @@ export class App {
   constructor(public stock: Stock) {}
 
   agregarMedicamento = () => {
-    if (this.nuevoNombre !== '' && this.nuevoPrecio !== 0) {
+    if (this.nuevoNombre !== '' && this.nuevoPrecio > 0) {
       const nuevoMed = {
         id: Date.now(),
         nombre: this.nuevoNombre,
