@@ -16,6 +16,7 @@ export class App {
   nuevoNombre: string = '';
   nuevoPrecio: number = 0;
   nuevoStock: number = 0;
+  textoBusqueda: string = '';
 
   constructor(public stock: Stock) {}
   agregarMedicamento = () => {
