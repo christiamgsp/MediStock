@@ -4,11 +4,12 @@ import { Navbar } from './shared/components/navbar/navbar';
 import { Stock } from './services/stock';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { AcortarIdPipe } from './shared/pipes/acortar-id.pipe';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, Navbar, CommonModule, FormsModule],
+  imports: [RouterOutlet, Navbar, CommonModule, FormsModule, AcortarIdPipe],
   templateUrl: './app.html',
   styleUrl: './app.css',
 })
