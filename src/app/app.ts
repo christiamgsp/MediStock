@@ -49,7 +49,8 @@ export class App {
     return this.stock.listaMedicamentos.filter(
       (m) =>
         m.nombre.toLowerCase().includes(this.textoBusqueda.toLowerCase()) &&
-        m.precio <= this.precioMaximo,
+        m.precio <= this.precioMaximo &&
+        m.stock > 0,
     );
   }
 }

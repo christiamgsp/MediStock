@@ -30,12 +30,31 @@
 
   <table>
     <thead>
-      <tr>
-        <th>Nombre</th>
-        <th>Precio</th>
-        <th>Stock</th>
-        <th>Estado y Registro</th>
-        <th>Acciones</th>
+      <tr *ngFor="let m of medicamentosFiltrados">
+        <td>{{ m.stock < 5 ? m.nombre.toUpperCase() : m.nombre }}</td>
+
+        <td>{{ m.precio | currency: 'EUR' }}</td>
+
+        <td
+          [style.color]="m.stock < 10 ? 'red' : 'black'"
+          [style.font-weight]="m.stock < 10 ? 'bold' : 'normal'"
+        >
+          {{ m.stock }}
+        </td>
+
+        <td>
+          <span *ngIf="m.stock > 20">✅ Disponible</span>
+          <span *ngIf="m.stock <= 20 && m.stock > 0">⚠️ Reponer pronto</span>
+          <span *ngIf="m.stock === 0">❌ Agotado</span>
+          <br />
+          <small style="color: #bbb">Ref: {{ m.id }}</small>
+        </td>
+
+        <td>
+          <button [disabled]="m.stock === 0" (click)="stock.realizarVenta(m.id)">
+            {{ m.stock > 0 ? 'Vender' : 'Sin Stock' }}
+          </button>
+        </td>
       </tr>
     </thead>
     <tbody>
