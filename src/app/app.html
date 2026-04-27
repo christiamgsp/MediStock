@@ -12,7 +12,9 @@
     <label>Precio máximo:</label>
     <input type="number" [(ngModel)]="precioMaximo" />
 
-    <button (click)="limpiarFiltros()">Limpiar Filtros</button>
+    <button [disabled]="textoBusqueda === '' && precioMaximo === 100" (click)="limpiarFiltros()">
+      Limpiar Filtros
+    </button>
 
     <p *ngIf="textoBusqueda !== ''">
       Estás buscando: <strong>{{ textoBusqueda }}</strong>
