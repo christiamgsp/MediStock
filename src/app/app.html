@@ -74,7 +74,7 @@
           <span *ngIf="m.stock > 20">✅ Disponible</span>
           <span *ngIf="m.stock <= 20">⚠️ Reponer pronto</span>
           <br />
-          <small style="color: #bbb">Ref: {{ m.id | date: 'HH:mm:ss' }}</small>
+          <small style="color: #bbb">Ref: {{ m.id | acortarId }}</small>
         </td>
 
         <td>
