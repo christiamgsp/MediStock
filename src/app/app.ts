@@ -46,11 +46,14 @@ export class App {
   };
 
   get medicamentosFiltrados() {
-    return this.stock.listaMedicamentos.filter(
-      (m) =>
-        m.nombre.toLowerCase().includes(this.textoBusqueda.toLowerCase()) &&
-        m.precio <= this.precioMaximo &&
-        m.stock > 0,
-    );
+    return this.stock.listaMedicamentos.filter((m) => {
+      const coincideNombre = m.nombre.toLowerCase().includes(this.textoBusqueda.toLowerCase());
+
+      const coincidePrecio = this.precioMaximo ? m.precio <= this.precioMaximo : true;
+
+      const tieneStock = m.stock > 0;
+
+      return coincideNombre && coincidePrecio && tieneStock;
+    });
   }
 }
