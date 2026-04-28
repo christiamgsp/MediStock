@@ -37,7 +37,7 @@ export class Stock {
   eliminarMedicamento = (idParaBorrar: number | string) => {
     if (confirm('¿Estás seguro de que deseas eliminar este medicamento?')) {
       this.listaMedicamentos = this.listaMedicamentos.filter((m) => m.id !== idParaBorrar);
-      this.guardarEnLocal(); // <-- Guardamos la lista sin el elemento borrado
+      this.guardarEnLocal();
     }
   };
 
