@@ -5,7 +5,6 @@
 
   <div class="buscador-container">
     <h3>Filtros de Búsqueda</h3>
-
     <label>Nombre:</label>
     <input type="text" [(ngModel)]="textoBusqueda" placeholder="Ej: Aspirina..." />
 
@@ -15,7 +14,7 @@
     <button [disabled]="textoBusqueda === '' && precioMaximo === 100" (click)="limpiarFiltros()">
       Limpiar Filtros
     </button>
- 
+
     <p *ngIf="textoBusqueda !== ''">
       Estás buscando: <strong>{{ textoBusqueda }}</strong>
     </p>
@@ -32,66 +31,49 @@
 
   <table>
     <thead>
+      <tr>
+        <th>Nombre</th>
+        <th>Precio</th>
+        <th>Stock</th>
+        <th>Estado</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
       <tr *ngFor="let m of medicamentosFiltrados">
         <td>{{ m.stock < 5 ? m.nombre.toUpperCase() : m.nombre }}</td>
-
         <td>{{ m.precio | currency: 'EUR' }}</td>
-
         <td
           [style.color]="m.stock < 10 ? 'red' : 'black'"
           [style.font-weight]="m.stock < 10 ? 'bold' : 'normal'"
         >
           {{ m.stock }}
         </td>
-
         <td>
           <span *ngIf="m.stock > 20">✅ Disponible</span>
           <span *ngIf="m.stock <= 20 && m.stock > 0">⚠️ Reponer pronto</span>
           <span *ngIf="m.stock === 0">❌ Agotado</span>
           <br />
-          <small style="color: #bbb">Ref: {{ m.id }}</small>
+          <small style="color: #bbb">Ref: {{ m.id | acortarId }}</small>
         </td>
-
         <td>
           <button [disabled]="m.stock === 0" (click)="stock.realizarVenta(m.id)">
             {{ m.stock > 0 ? 'Vender' : 'Sin Stock' }}
           </button>
-          <td>
-            <button [disabled]="m.stock === 0" (click)="stock.realizarVenta(m.id)">Vender</button>
-      
-            <button
-              style="background-color: #e74c3c; margin-left: 5px"
-              (click)="stock.eliminarMedicamento(m.id)"
-            >
-              Eliminar
-            </button>
-          </td>
-      
-        </td>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let m of medicamentosFiltrados">
-        <td>{{ m.nombre }}</td>
 
-        <td>{{ m.precio | currency: 'EUR' }}</td>
-
-        <td
-          [style.color]="m.stock < 10 ? 'red' : 'black'"
-          [style.font-weight]="m.stock < 10 ? 'bold' : 'normal'"
-        >
-          {{ m.stock }}
-        </td>
-
-        <td>
-          <span *ngIf="m.stock > 20">✅ Disponible</span>
-          <span *ngIf="m.stock <= 20">⚠️ Reponer pronto</span>
-          <br />
-          <small style="color: #bbb">Ref: {{ m.id | acortarId }}</small>
-        </td>
-
-        <td>
-          <button (click)="stock.realizarVenta(m.id)">Vender</button>
+          <button
+            style="
+              background-color: #e74c3c;
+              color: white;
+              margin-left: 5px;
+              border: none;
+              padding: 5px 10px;
+              cursor: pointer;
+            "
+            (click)="stock.eliminarMedicamento(m.id)"
+          >
+            Eliminar
+          </button>
         </td>
       </tr>
     </tbody>
