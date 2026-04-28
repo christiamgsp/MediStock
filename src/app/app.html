@@ -9,7 +9,12 @@
     <input type="text" [(ngModel)]="textoBusqueda" placeholder="Ej: Aspirina..." />
 
     <label>Precio máximo:</label>
-    <input type="number" [(ngModel)]="precioMaximo" />
+    <input
+      type="text"
+      [(ngModel)]="nuevoNombre"
+      [ngClass]="{ 'input-error': nuevoNombre === '' }"
+      placeholder="Nombre"
+    />
 
     <button [disabled]="textoBusqueda === '' && precioMaximo === 100" (click)="limpiarFiltros()">
       Limpiar Filtros
