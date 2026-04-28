@@ -26,4 +26,7 @@ export class Stock {
       alert('¡No hay existencias para vender!');
     }
   };
+  eliminarMedicamento = (idParaBorrar: number | string) => {
+    this.listaMedicamentos = this.listaMedicamentos.filter((m) => m.id !== idParaBorrar);
+  };
 }
