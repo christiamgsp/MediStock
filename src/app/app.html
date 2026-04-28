@@ -15,6 +15,16 @@
     <button [disabled]="textoBusqueda === '' && precioMaximo === 100" (click)="limpiarFiltros()">
       Limpiar Filtros
     </button>
+    <td>
+      <button [disabled]="m.stock === 0" (click)="stock.realizarVenta(m.id)">Vender</button>
+
+      <button
+        style="background-color: #e74c3c; margin-left: 5px"
+        (click)="stock.eliminarMedicamento(m.id)"
+      >
+        Eliminar
+      </button>
+    </td>
 
     <p *ngIf="textoBusqueda !== ''">
       Estás buscando: <strong>{{ textoBusqueda }}</strong>
