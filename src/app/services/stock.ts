@@ -27,6 +27,8 @@ export class Stock {
     }
   };
   eliminarMedicamento = (idParaBorrar: number | string) => {
-    this.listaMedicamentos = this.listaMedicamentos.filter((m) => m.id !== idParaBorrar);
+    if (confirm('¿Estás seguro de que deseas eliminar este medicamento?')) {
+      this.listaMedicamentos = this.listaMedicamentos.filter((m) => m.id !== idParaBorrar);
+    }
   };
 }
