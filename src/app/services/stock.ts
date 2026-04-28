@@ -31,4 +31,15 @@ export class Stock {
       this.listaMedicamentos = this.listaMedicamentos.filter((m) => m.id !== idParaBorrar);
     }
   };
+
+  private guardarEnLocal() {
+    localStorage.setItem('mis_medicamentos', JSON.stringify(this.listaMedicamentos));
+  }
+
+  constructor() {
+    const datosGuardados = localStorage.getItem('mis_medicamentos');
+    if (datosGuardados) {
+      this.listaMedicamentos = JSON.parse(datosGuardados);
+    }
+  }
 }
