@@ -5,16 +5,12 @@
 
   <div class="buscador-container">
     <h3>Filtros de Búsqueda</h3>
+
     <label>Nombre:</label>
     <input type="text" [(ngModel)]="textoBusqueda" placeholder="Ej: Aspirina..." />
 
     <label>Precio máximo:</label>
-    <input
-      type="text"
-      [(ngModel)]="nuevoNombre"
-      [ngClass]="{ 'input-error': nuevoNombre === '' }"
-      placeholder="Nombre"
-    />
+    <input type="number" [(ngModel)]="precioMaximo" />
 
     <button [disabled]="textoBusqueda === '' && precioMaximo === 100" (click)="limpiarFiltros()">
       Limpiar Filtros
@@ -27,7 +23,13 @@
 
   <section class="formulario">
     <h3>Añadir Nuevo Medicamento</h3>
-    <input type="text" [(ngModel)]="nuevoNombre" placeholder="Nombre" />
+    <input
+      type="text"
+      [(ngModel)]="nuevoNombre"
+      [ngClass]="{ 'input-error': nuevoNombre === '' }"
+      placeholder="Nombre"
+    />
+
     <input type="number" [(ngModel)]="nuevoPrecio" placeholder="Precio" />
     <input type="number" [(ngModel)]="nuevoStock" placeholder="Stock" />
 
@@ -67,7 +69,6 @@
           <button [disabled]="m.stock === 0" (click)="stock.realizarVenta(m.id)">
             {{ m.stock > 0 ? 'Vender' : 'Sin Stock' }}
           </button>
-
           <button
             style="
               background-color: #e74c3c;

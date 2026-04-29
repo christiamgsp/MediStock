@@ -45,4 +45,6 @@ export class Stock {
     this.listaMedicamentos.push(nuevo);
     this.guardarEnLocal();
   }
+
+  obtenerTotalProductos = () => this.listaMedicamentos.length;
 }
