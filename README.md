@@ -1,59 +1,35 @@
-# Medistock
+# 💊 MediStock - Sistema de Gestión Farmacéutica
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.2.7.
+MediStock es una aplicación web profesional desarrollada con **Angular 18** diseñada para el control eficiente de inventarios en farmacias o almacenes médicos. El proyecto destaca por una interfaz limpia, validaciones en tiempo real y persistencia de datos local.
 
-## Development server
+🚀 **[Ver Demo en Vivo](https://medi-stock-gamma.vercel.app/)**
 
-To start a local development server, run:
+---
 
-```bash
-ng serve
-```
+## ✨ Características Principales
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+- **Gestión de Inventario (CRUD):** Registro, visualización, venta y eliminación de medicamentos.
+- **Visualización de Stock Dinámica:** Indicadores visuales mediante barras de progreso que cambian de color según el nivel de existencias.
+- **Filtros Inteligentes:** Búsqueda reactiva por nombre y filtrado por rango de precio máximo.
+- **Persistencia de Datos:** Integración con `LocalStorage` para garantizar que la información no se pierda al recargar la página.
+- **Arquitectura Profesional:** Uso de servicios para la lógica de negocio, pipes personalizados para transformación de datos y directivas para validaciones visuales.
 
-## Code scaffolding
+---
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+## 🛠️ Tecnologías Utilizadas
 
-```bash
-ng generate component component-name
-```
+- **Angular 18:** Framework principal (Standalone Components).
+- **TypeScript:** Programación robusta y tipado estricto.
+- **CSS3 Avanzado:** Diseño responsivo con Flexbox y animaciones (Navbar con efecto pulse).
+- **Vercel:** Despliegue continuo (CI/CD).
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+---
 
-```bash
-ng generate --help
-```
+## 📦 Instalación y Uso
 
-## Building
+Si deseas ejecutar este proyecto localmente:
 
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+1. Clona el repositorio:
+   ```bash
+   git clone [https://github.com/christiamgsp/MediStock.git](https://github.com/christiamgsp/MediStock.git)
+   ```
