@@ -52,11 +52,20 @@
       <tr *ngFor="let m of medicamentosFiltrados">
         <td>{{ m.stock < 5 ? m.nombre.toUpperCase() : m.nombre }}</td>
         <td>{{ m.precio | currency: 'EUR' }}</td>
-        <td
-          [style.color]="m.stock < 10 ? 'red' : 'black'"
-          [style.font-weight]="m.stock < 10 ? 'bold' : 'normal'"
-        >
-          {{ m.stock }}
+        <td>
+          <div style="display: flex; flex-direction: column; gap: 4px">
+            <span
+              [style.color]="m.stock < 10 ? 'red' : 'black'"
+              [style.font-weight]="m.stock < 10 ? 'bold' : 'normal'"
+            >
+              {{ m.stock }} unidades
+            </span>
+            <progress
+              [value]="m.stock"
+              max="50"
+              [style.accent-color]="m.stock < 10 ? '#e74c3c' : '#2ecc71'"
+            ></progress>
+          </div>
         </td>
         <td>
           <span *ngIf="m.stock > 20">✅ Disponible</span>
