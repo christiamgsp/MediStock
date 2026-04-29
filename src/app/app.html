@@ -31,7 +31,9 @@
     <input type="number" [(ngModel)]="nuevoPrecio" placeholder="Precio" />
     <input type="number" [(ngModel)]="nuevoStock" placeholder="Stock" />
 
-    <button (click)="agregarMedicamento()">Guardar en Inventario</button>
+    <button [disabled]="nuevoNombre === '' || nuevoPrecio <= 0" (click)="agregarMedicamento()">
+      Guardar en Inventario
+    </button>
   </section>
 
   <table>
